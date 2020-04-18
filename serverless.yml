@@ -1,0 +1,19 @@
+service: sls-layers-python-requirements
+
+provider:
+  name: aws
+  runtime: python3.7
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    layer:
+      name: opencv
+      description: opencv library
+      compatibleRuntimes:
+        - python3.7
+      allowedAccounts:
+        - '*'
